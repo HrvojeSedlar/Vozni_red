@@ -5,25 +5,41 @@ from django.db import models
 class Vozac(models.Model):
     ime = models.CharField(max_length=30)
     prezime = models.CharField(max_length=30)
-    OIB = models.CharField(max_length=11)
+    OIB = models.DecimalField(max_digits=11, decimal_places=0, primary_key=True)
 
     def __str__(self):
         return self.name
 
 
 class Autobus(models.Model):
-    marka = models.CharField(max_length=30)
-    linijski_broj = models.CharField(max_length=30)
-    vozac = models.CharField(max_length=30)
+    model = models.CharField(max_length=30)
+    broj = models.DecimalField(max_digits=3, decimal_places=0, primary_key=True)
+    vozac = models.OneToOneField(Vozac, on_delete=models.CASCADE) #One to One
 
     def __str__(self):
         return self.name
 
 
+class Stanica(models.Model):
+    ime = models.CharField(max_length=30, primary_key=True)
+    adresa = models.CharField(max_length=30)
+    linije = models.ManyToManyField("Linija", through="StanicaLinija") #Many to Many
+
+    def __str__(self):
+        return self.name
+
 class Linija(models.Model):
-    vrijeme_polaska = models.CharField(max_length=30)
-    autobus = models.CharField(max_length=30)
-    odrediste = models.CharField(max_length=30)
+    ime = models.CharField(max_length=30, primary_key=True)
+    vrijeme_polaska = models.TimeField(auto_now=False, auto_now_add=False)
+    autobus = models.ForeignKey(Autobus, on_delete=models.CASCADE) #One to Many
+    stanice = models.ManyToManyField(Stanica, through="StanicaLinija") #Many to Many
+
+    def __str__(self):
+        return self.name
+
+class StanicaLinija(models.Model):
+    linija = models.ForeignKey(Linija, on_delete=models.CASCADE) #One to Many
+    stanica = models.ForeignKey(Stanica, on_delete=models.CASCADE) #One to Many
 
     def __str__(self):
         return self.name
