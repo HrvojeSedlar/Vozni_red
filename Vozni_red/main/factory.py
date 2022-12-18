@@ -16,30 +16,27 @@ class AutobusFactory(DjangoModelFactory):
         model = Autobus
 
     model = factory.Faker("name")
-    broj = factory.Faker("randomize_nb_elements")
+    tablica = factory.Faker("license_plate")
     vozac = factory.Iterator(Vozac.objects.all())
 
 class StanicaFactory(DjangoModelFactory):
     class Meta:
         model = Stanica
 
-    ime = factory.Faker("")
+    ime = factory.Faker("text", max_nb_chars=15)
     adresa = factory.Faker("address")
-    linije = factory.Faker("")
 
 class LinijaFactory(DjangoModelFactory):
     class Meta:
         model = Linija
 
-    ime = factory.Faker("")
-    vrijeme_polaska = factory.Faker("")
-    autobus = factory.Faker("")
-    stanice = factory.Faker("")
+    ime = factory.Faker("sentence", nb_words=3)
+    vrijeme_polaska = factory.Faker("time")
+    autobus = factory.Iterator(Autobus.objects.all())
 
 class StanicaLinijaFactory(DjangoModelFactory):
     class Meta:
         model = StanicaLinija
 
-    linija = factory.Faker("")
-    stanica = factory.Faker("")
-    OIB = factory.Faker("")
+    linija = factory.Iterator(Linija.objects.all())
+    stanica = factory.Iterator(Stanica.objects.all())
