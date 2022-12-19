@@ -1,0 +1,13 @@
+h1 {
+    color: rgb(255, 153, 0);
+    text-align: center;
+}
+
+li {
+    list-style-type: circle;
+    float: left;
+}
+
+li a {
+    padding: 20px;
+}

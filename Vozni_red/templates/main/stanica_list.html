@@ -1,0 +1,17 @@
+{% block content %}
+    <h2>Stanice</h2>
+    <ul>
+        {% for stanica in object_list %}
+            <li>
+                Ime: {{ stanica.ime }}<br>
+                Adresa: {{ stanica.adresa }}<br>
+                {% for linija in stanica.linije.all %}
+                <p>
+                    Linija: {{ linija.ime }}<br>
+                </p>
+                {%endfor%}<br>
+                <br>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

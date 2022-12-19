@@ -1,0 +1,13 @@
+{% block content %}
+    <h2>Autobusi</h2>
+    <ul>
+        {% for autobus in object_list %}
+            <li>
+                Model: {{ autobus.model }}<br>
+                Tablica: {{ autobus.tablica }}<br>
+                Vozac: {{ autobus.vozac }}<br>
+                <br>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

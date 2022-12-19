@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"> 
+    <title>{% block title %}Vozni red{% endblock %}</title>
+</head>
+
+<body>
+    <h1>Vozni red</h1>
+    <div id="sidebar">
+        {% block sidebar %}
+        <ul>
+            <li><a href="/">Početna</a></li><br>
+            <br>
+            <li><a href="vozaci">Vozači</a></li><br>
+            <br>
+            <li><a href="autobusi">Autobusi</a></li><br>
+            <br>
+            <li><a href="stanice">Stanice</a></li><br>
+            <br>
+            <li><a href="linije">Linije</a></li>
+        </ul>
+        {% endblock %}
+    </div>
+
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+
+</body>
+</html>
