@@ -3,7 +3,7 @@
     <ul>
         {% for stanica in object_list %}
             <li>
-                Ime: {{ stanica.ime }}<br>
+                Ime stanice: {{ stanica.ime }}<br>
                 Adresa: {{ stanica.adresa }}<br>
                 {% for linija in stanica.linije.all %}
                 <p>

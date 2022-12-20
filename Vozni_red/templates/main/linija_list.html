@@ -3,12 +3,13 @@
     <ul>
         {% for linija in object_list %}
             <li>
-                Ime: {{ linija.ime }}<br>
+                Ime linije: {{ linija.ime }}<br>
                 Vrijeme polaska: {{ linija.vrijeme_polaska }}<br>
                 Autobus: {{ linija.autobus }}<br>
+                Stanice: 
                 {% for stanica in linija.stanice.all %}
                 <p>
-                    Stanica: {{ stanica.ime }}<br>
+                    {{ stanica.ime }}<br>
                 </p>
                 {%endfor%}<br>
                 <br>
@@ -16,3 +17,4 @@
         {% endfor %}
     </ul>
 {% endblock %}
+<!-- ovdje prikazujemo sve stanice za svaku liniju tako da ne trebamo poseban html di listamo entitet stanicalinija -->
