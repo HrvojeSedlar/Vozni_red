@@ -1,7 +1,8 @@
 import factory
 from factory.django import DjangoModelFactory
 
-from main.models import *
+from main.models import Autobus, Linija, Stanica, StanicaLinija, Vozac
+
 
 class VozacFactory(DjangoModelFactory):
     class Meta:

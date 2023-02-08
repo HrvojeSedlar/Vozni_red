@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from main.models import *
+from main.models import Autobus, Linija, Stanica, StanicaLinija, Vozac
 
 # Register your models here.
 

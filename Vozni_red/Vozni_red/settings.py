@@ -51,6 +51,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'Vozni_red.urls'
+LOGIN_REDIRECT_URL = '/'
 
 TEMPLATES = [
     {

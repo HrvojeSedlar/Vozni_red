@@ -1,0 +1,12 @@
+{% block content %}
+
+<h1>Obriši vozača</h1>
+
+<p>Želite li obrisati vozača iz baze? : {{ vozac }}?</p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Yes, delete." />
+</form>
+
+{% endblock %}

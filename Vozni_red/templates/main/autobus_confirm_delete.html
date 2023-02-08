@@ -1,0 +1,12 @@
+{% block content %}
+
+<h1>Obriši autobus</h1>
+
+<p>Želite li obrisati autobus iz baze? : {{ autobus }}?</p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Yes, delete." />
+</form>
+
+{% endblock %}

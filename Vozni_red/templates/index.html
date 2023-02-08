@@ -10,6 +10,13 @@
 <body>
     <h1>Vozni red</h1>
     <h2>Izradio: Hrvoje Sedlar</h2>
+
+    {% if user.is_authenticated %}
+        <p>Vaše ime: {{ user.username }}</p>
+    {% else %}
+        <p>Niste prijavljeni.</p>
+    {% endif %}
+
     <div id="sidebar">
         {% block sidebar %}
         <ul>
